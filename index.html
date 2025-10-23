@@ -3,579 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sofia Martínez - Creative Developer</title>
+    <title>CV Digital - Santiago Sanchis Esparza</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700;900&display=swap');
+        /* --- Fuentes y Estilos Base --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+        :root {
+            --color-primario: #007BFF; /* Azul profesional */
+            --color-secundario: #28a745; /* Verde para destacar */
+            --color-texto-principal: #333;
+            --color-texto-claro: #6c757d;
+            --color-fondo: #f8f9fa;
+            --color-tarjeta: #ffffff;
+            --sombra-tarjeta: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --sombra-boton: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #1a5252;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .main-wrapper {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--color-texto-principal);
+            background-color: var(--color-fondo);
             display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
-        .left-panel {
-            flex: 1;
-            background: #ebe8dc;
-            padding: 50px 80px;
-            overflow-y: auto;
-        }
-
-        .right-panel {
-            width: 450px;
-            background: #ebe8dc;
-            padding: 50px 40px;
-            border-left: 4px solid #1a5252;
-            overflow-y: auto;
-        }
-
-        /* Navigation */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 80px;
-        }
-
-        .brand {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 3.5em;
-            color: #1a5252;
-            font-style: italic;
-            font-weight: normal;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.85em;
-            letter-spacing: 1.5px;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: #1a5252;
-        }
-
-        .sidebar-social {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 60px;
-        }
-
-        .sidebar-social a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.75em;
-            letter-spacing: 1.5px;
-            transition: color 0.3s;
-        }
-
-        .sidebar-social a:hover {
-            color: #1a5252;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            margin-bottom: 100px;
-        }
-
-        .hero-title {
-            font-size: 2em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 50px;
-            font-weight: 400;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-left {
-            position: relative;
-        }
-
-        .large-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 7em;
-            line-height: 0.85;
-            color: #1a5252;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .hero-photo {
-            position: relative;
+        /* --- Estructura Principal --- */
+        .cv-container {
             width: 100%;
-        }
-
-        .hero-photo img {
-            width: 100%;
-            height: 550px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .code-icon {
-            font-family: 'Courier New', monospace;
-            font-size: 10em;
-            color: rgba(26, 82, 82, 0.08);
-            position: absolute;
-            right: -80px;
-            bottom: -40px;
-            font-weight: bold;
-        }
-
-        .hero-description {
-            margin-top: 40px;
-            line-height: 1.9;
-            color: #666;
-            max-width: 450px;
-            font-size: 1.05em;
-        }
-
-        /* Works Section */
-        .works-section {
-            margin-bottom: 100px;
-        }
-
-        .big-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 6em;
-            color: #1a5252;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-        }
-
-        .project-item {
-            background: white;
+            max-width: 1000px;
+            background: var(--color-tarjeta);
             border-radius: 12px;
+            box-shadow: var(--sombra-tarjeta);
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Columna Izquierda (Perfil) y Derecha (Contenido) */
             overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .project-item:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        /* --- Columna Izquierda (Perfil) --- */
+        .perfil-sidebar {
+            background-color: var(--color-primario);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
         }
 
-        .project-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .project-details {
-            padding: 25px;
-        }
-
-        .project-category {
-            font-size: 0.7em;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #999;
-            margin-bottom: 8px;
+        .perfil-foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 auto 20px;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            /* Placeholder para la imagen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
             font-weight: 700;
         }
 
-        .project-name {
-            font-weight: 900;
-            font-size: 1.3em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            color: #1a5252;
-            letter-spacing: 0.5px;
+        .perfil-foto span {
+            /* Iniciales S S E */
+            letter-spacing: -3px;
         }
 
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 25px;
-            border: 2px solid #1a5252;
-            text-decoration: none;
-            color: #1a5252;
-            font-weight: 900;
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 25px;
-            transition: all 0.3s;
+        .perfil-sidebar h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            font-weight: 700;
         }
 
-        .project-link:hover {
-            background: #1a5252;
+        .perfil-sidebar p {
+            font-size: 1.1em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contacto-info {
+            text-align: left;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+        }
+
+        .contacto-info div {
+            margin-bottom: 15px;
+        }
+
+        .contacto-info strong {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .contacto-info a {
             color: white;
+            text-decoration: none;
+            font-weight: 300;
         }
 
-        /* Sidebar Content */
-        .sidebar-block {
-            margin-bottom: 60px;
+        /* --- Columna Derecha (Contenido) --- */
+        .cv-contenido {
+            padding: 40px;
         }
 
-        .sidebar-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5em;
-            color: #1a5252;
+        .seccion {
             margin-bottom: 35px;
-            text-transform: uppercase;
-            line-height: 0.95;
-            letter-spacing: 1px;
         }
 
-        .content-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .content-card h3 {
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.95em;
-            margin-bottom: 18px;
-            color: #1a5252;
-            letter-spacing: 1px;
-        }
-
-        .content-card p {
-            font-size: 0.9em;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        .tech-stack {
-            font-size: 0.9em;
-            line-height: 2;
-            color: #666;
-        }
-
-        .workspace-img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 10px;
+        .seccion h2 {
+            font-size: 1.5em;
+            color: var(--color-primario);
+            border-bottom: 3px solid var(--color-secundario);
+            padding-bottom: 5px;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        /* Testimonials */
-        .testimonials-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        /* --- Experiencia y Educación --- */
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
         }
 
-        .testimonial-box {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .testimonial-top {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 18px;
-        }
-
-        .testimonial-pic {
-            width: 70px;
-            height: 70px;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: var(--color-secundario);
             border-radius: 50%;
-            object-fit: cover;
         }
 
-        .testimonial-author h4 {
-            font-weight: 900;
-            text-transform: uppercase;
+        .timeline-item h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .timeline-item p.subtitulo {
+            color: var(--color-texto-claro);
+            font-style: italic;
             font-size: 0.95em;
             margin-bottom: 5px;
-            letter-spacing: 0.5px;
         }
 
-        .testimonial-author p {
-            font-size: 0.7em;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-        }
-
-        .testimonial-content {
-            font-size: 0.9em;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        /* CTA Section */
-        .cta-box {
-            background: #1a5252;
-            color: white;
-            padding: 60px 45px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4em;
-            margin-bottom: 25px;
-            line-height: 0.95;
-        }
-
-        .cta-text {
-            font-size: 0.95em;
-            margin-bottom: 35px;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-
-        .cta-button {
+        .timeline-item .periodo {
             display: inline-block;
-            padding: 18px 50px;
-            background: white;
-            color: #1a5252;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            border-radius: 35px;
-            transition: all 0.3s;
-            letter-spacing: 1.5px;
-            font-size: 0.9em;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
-            border: 2px solid #1a5252;
-            text-decoration: none;
-            color: #1a5252;
-            font-weight: 900;
+            background: var(--color-fondo);
+            color: var(--color-primario);
+            padding: 3px 8px;
+            border-radius: 4px;
             font-size: 0.8em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 25px;
-            transition: all 0.3s;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        .btn-secondary:hover {
-            background: #1a5252;
+        /* --- Habilidades --- */
+        .habilidades-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .habilidad-tag {
+            background-color: #e9ecef;
+            color: var(--color-texto-principal);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* --- Botón de Llamada a la Acción (CTA) --- */
+        .cta-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--color-fondo);
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .cta-box a.boton {
+            display: inline-block;
+            background-color: var(--color-secundario);
             color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: var(--sombra-boton);
         }
 
-        /* Responsive */
-        @media (max-width: 1400px) {
-            .left-panel {
-                padding: 40px 50px;
-            }
-
-            .large-text {
-                font-size: 5.5em;
-            }
+        .cta-box a.boton:hover {
+            background-color: #1e7e34; /* Tono más oscuro de verde */
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 1200px) {
-            .main-wrapper {
-                flex-direction: column;
-            }
-
-            .right-panel {
-                width: 100%;
-                border-left: none;
-                border-top: 4px solid #1a5252;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .code-icon {
-                display: none;
-            }
-        }
-
+        /* --- Media Queries para Responsive Design --- */
         @media (max-width: 768px) {
-            .left-panel {
-                padding: 30px 25px;
+            .cv-container {
+                grid-template-columns: 1fr; /* Una sola columna en móviles */
+                max-width: 90%;
             }
 
-            .right-panel {
-                padding: 30px 25px;
+            .perfil-sidebar {
+                padding: 30px 20px;
+                border-radius: 12px 12px 0 0;
             }
 
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 25px;
+            .cv-contenido {
+                padding: 30px 20px;
             }
 
-            .nav-menu {
-                flex-direction: column;
-                gap: 15px;
+            .perfil-sidebar h1 {
+                font-size: 1.5em;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .large-text {
-                font-size: 4em;
-            }
-
-            .big-heading {
-                font-size: 4em;
-            }
-
-            .hero-photo img {
-                height: 400px;
+            .perfil-sidebar p {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="main-wrapper">
-        <!-- Left Panel -->
-        <div class="left-panel">
-            <header class="header">
-                <div class="brand">Sofia</div>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="#works">WORKS</a></li>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#testimonial">TESTIMONIAL</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                    </ul>
-                </nav>
-            </header>
 
-            <div class="sidebar-social">
-                <a href="https://github.com/sofiamartinez">GITHUB</a>
-                <a href="https://instagram.com/sofiamartinez">INSTAGRAM</a>
-                <a href="https://twitter.com/sofiamartinez">TWITTER</a>
-                <a href="https://linkedin.com/in/sofiamartinez">LINKEDIN</a>
+    <div class="cv-container">
+        
+        <div class="perfil-sidebar">
+            
+            <div class="perfil-foto">
+                <span>SSE</span>
             </div>
 
-            <section class="hero-section">
-                <h1 class="hero-title">Hey there, I'm Sofia</h1>
-                <div class="hero-content">
-                    <div class="hero-left">
-                        <div class="large-text">
-                            BACK-END<br>
-                            DEVELOPER
-                        </div>
-                        <div class="code-icon">{}</div>
-                    </div>
-                    <div class="hero-photo">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop" alt="Sofia Martínez">
-                    </div>
-                </div>
-                <p class="hero-description">
-                    I AM A SKILLED BACK-END DEVELOPER WITH A PASSION FOR BUILDING ROBUST AND SCALABLE SYSTEMS. MY EXPERTISE LIES IN SERVER ARCHITECTURE, DATABASE OPTIMIZATION, AND API DEVELOPMENT WITH A FOCUS ON PERFORMANCE.
-                </p>
-            </section>
+            <h1>Santiago Sanchis Esparza</h1>
+            <p>Analista Funcional</p>
 
-            <section class="works-section" id="works">
-                <h2 class="big-heading">WORKS</h2>
-                <div class="projects-grid">
-                    <div class="project-item">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Analytics Platform" class="project-img">
-                        <div class="project-details">
-                            <div class="project-category">WEB APPLICATION ™</div>
-                            <div class="project-name">ANALYTICS PLATFORM</div>
-                            <a href="#" class="project-link">VIEW PROJECT ></a>
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" alt="API Gateway" class="project-img">
-                        <div class="project-details">
-                            <div class="project-category">MICROSERVICES ™</div>
-                            <div class="project-name">API GATEWAY</div>
-                            <a href="#" class="project-link">VIEW PROJECT ></a>
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" alt="Cloud Infrastructure" class="project-img">
-                        <div class="project-details">
-                            <div class="project-category">INFRASTRUCTURE ™</div>
-                            <div class="project-name">CLOUD SYSTEM</div>
-                            <a href="#" class="project-link">VIEW PROJECT ></a>
-                        </div>
-                    </div>
+            <div class="organizacion">
+                <p>Organismo:</p>
+                <p style="font-weight: 700; font-size: 1.2em; margin-bottom: 0;">Confederación Hidrográfica del Júcar</p>
+            </div>
+
+            <div class="contacto-info">
+                <div>
+                    <strong>Email</strong>
+                    <a href="mailto:santiago.esparza.analista@chj.es">santiago.esparza.analista@chj.es</a>
                 </div>
-            </section>
+                <div>
+                    <strong>Teléfono</strong>
+                    <span>+34 600 123 456</span>
+                </div>
+                <div>
+                    <strong>Ubicación</strong>
+                    <span>Valencia, España</span>
+                </div>
+                <div>
+                    <strong>LinkedIn</strong>
+                    <a href="https://linkedin.com/in/santiagosanchisesparza" target="_blank">/in/santiago-sse</a>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Right Panel -->
-        <div class="right-panel">
-            <section class="sidebar-block" id="about">
-                <h2 class="sidebar-heading">PASSIONATE ABOUT DEVELOPMENT</h2>
-                <div class="content-card">
-                    <h3>TECHNICAL SKILLS</h3>
-                    <p>SPECIALIZING IN PYTHON, NODE.JS, AND GO. OVER 6 YEARS OF EXPERIENCE IN BUILDING MICROSERVICES ARCHITECTURES AND IMPLEMENTING BEST PRACTICES FOR PERFORMANCE AND SECURITY.</p>
-                </div>
-                <div class="content-card">
-                    <h3>WORK EXPERIENCE</h3>
-                    <p>CURRENTLY WORKING AT A LEADING TECH COMPANY, DESIGNING AND IMPLEMENTING SCALABLE BACKEND SOLUTIONS. EXPERIENCED IN HANDLING HIGH-TRAFFIC APPLICATIONS AND OPTIMIZING DATABASE PERFORMANCE.</p>
-                </div>
-                <a href="#" class="btn-secondary">VIEW ALL ></a>
-            </section>
+        <div class="cv-contenido">
+            
+            <div class="seccion">
+                <h2>Perfil Profesional</h2>
+                <p>
+                    Analista Funcional altamente motivado con más de 8 años de experiencia en la transformación digital de procesos en el sector público. Especializado en el análisis de sistemas de información geográfica (SIG) y la gestión de proyectos de modernización de infraestructuras hidráulicas. Fuerte capacidad para traducir las necesidades operacionales en requisitos técnicos claros y liderar equipos multidisciplinares hasta la implementación exitosa.
+                </p>
+            </div>
 
-            <section class="sidebar-block">
-                <h2 class="sidebar-heading">GEARS AND MECHANICAL DEVICES USED IN TRANSPORT TOOLS</h2>
-                <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=280&fit=crop" alt="Workspace" class="workspace-img">
-                    <h3>FAVOURITE GEARS</h3>
-                    <div class="tech-stack">
-                        LAPTOP: DELL XPS 15 /
+            <div class="seccion">
+                <h2>Experiencia Laboral</h2>
+                
+                <div class="timeline-item">
+                    <span class="periodo">2018 - Actualidad</span>
+                    <h3>Analista Funcional Senior</h3>
+                    <p class="subtitulo">Confederación Hidrográfica del Júcar (CHJ)</p>
+                    <ul>
+                        <li>Liderazgo en el análisis, diseño e implementación del nuevo Sistema de Información Hidrológica (SIH).</li>
+                        <li>Coordinación entre usuarios finales (ingenieros y técnicos) y el equipo de desarrollo de software.</li>
+                        <li>Optimización de los flujos de trabajo de gestión de recursos hídricos, resultando en una reducción del 15% en los tiempos de respuesta ante incidencias.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="periodo">2014 - 2018</span>
+                    <h3>Consultor de Sistemas de Gestión</h3>
+                    <p class="subtitulo">TecnoData Solutions</p>
+                    <p>
+                        Participación en proyectos de integración de sistemas ERP y CRM para clientes del sector de utilities, centrado en la calidad de datos y la documentación funcional.
+                    </p>
+                </div>
+            </div>
+
+            <div class="seccion">
+                <h2>Habilidades Clave</h2>
+                <div class="habilidades-lista">
+                    <span class="habilidad-tag">Análisis Funcional</span>
+                    <span class="habilidad-tag">Modelado de Procesos (BPMN)</span>
+                    <span class="habilidad-tag">Sistemas de Información Geográfica (GIS)</span>
+                    <span class="habilidad-tag">SQL & Bases de Datos</span>
+                    <span class="habilidad-tag">Gestión de Requisitos (JIRA)</span>
+                    <span class="habilidad-tag">Metodologías Ágiles (Scrum)</span>
+                    <span class="habilidad-tag">Documentación Técnica</span>
+                    <span class="habilidad-tag">Sector Hidráulico</span>
+                </div>
+            </div>
+
+            <div class="seccion">
+                <h2>Formación</h2>
+                <div class="timeline-item">
+                    <span class="periodo">2012 - 2013</span>
+                    <h3>Máster en Ingeniería del Agua y Sistemas Hídricos</h3>
+                    <p class="subtitulo">Universitat Politècnica de València (UPV)</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="periodo">2007 - 2012</span>
+                    <h3>Ingeniería Informática</h3>
+                    <p class="subtitulo">Universidad de Alicante</p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <p style="font-size: 1.1em; margin-bottom: 15px;">¿Interesado en mi perfil completo?</p>
+                <a href="#" class="boton" onclick="alert('Descargando el CV de Santiago...')">Descargar CV en PDF</a>
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
